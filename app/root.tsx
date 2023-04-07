@@ -15,6 +15,7 @@ import type { LinksFunction, LoaderFunction } from 'remix'
 import clsx from 'clsx'
 import { AnimatePresence } from 'framer-motion'
 
+import { StyledEngineProvider } from '@mui/material/styles';
 import type { Theme } from '~/hooks/use-theme'
 import { NonFlashOfWrongThemeEls, ThemeProvider, useTheme } from '~/hooks/use-theme'
 import { getThemeSession } from '~/utils/theme.server'
@@ -60,7 +61,7 @@ function Document({ children, title }: { children: React.ReactNode; title?: stri
   const { theme: loadedTheme } = useLoaderData<LoaderData>()
   const { theme } = useTheme()
   return (
-    <html lang='en' className={clsx('scroll-p-32 scroll-smooth', theme === 'dark' && theme)}>
+    <html lang='en' className={clsx('scroll-p-32 scroll-smooth', theme === 'dark' && theme)} style={{ maxWidth: '100%', overflowX: 'hidden' }}>
       <head>
         <meta charSet='utf8' />
         <meta name='viewport' content='width=device-width,initial-scale=1' />
@@ -69,7 +70,11 @@ function Document({ children, title }: { children: React.ReactNode; title?: stri
         <Links />
         <NonFlashOfWrongThemeEls ssrTheme={Boolean(loadedTheme)} />
       </head>
-      <body className='bg-dark-50 text-dark-600 transition-colors duration-300 ease-in-out dark:bg-dark-850 dark:text-dark-50'>
+      <body className='
+        bg-dark-50 dark:bg-dark-850 
+        dark:text-dark-50 text-dark-600 
+        transition-colors duration-300 ease-in-out 
+      '>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -96,11 +101,13 @@ export default function App() {
     <StrictMode>
       <ThemeProvider specifiedTheme={theme}>
         <AnimatePresence exitBeforeEnter>
-          <Document>
-            <Layout>
-              <Outlet />
-            </Layout>
-          </Document>
+          <StyledEngineProvider injectFirst>
+            <Document>
+              <Layout>
+                <Outlet />
+              </Layout>
+            </Document>
+          </StyledEngineProvider>
         </AnimatePresence>
       </ThemeProvider>
     </StrictMode>

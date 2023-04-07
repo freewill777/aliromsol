@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState, cloneElement, ReactNode } from 'react'
 import type { ActionFunction, LoaderFunction, MetaFunction } from 'remix'
 import { json, useActionData, useLoaderData, useTransition } from 'remix'
 
@@ -96,7 +96,7 @@ export const action: ActionFunction = async ({ request }) => {
 }
 
 export const meta: MetaFunction = () => ({
-  title: 'Oliver Cederborg - Frontend developer',
+  title: 'Alirom Solutions - Frontend developer',
   description:
     "I'm a 25 year old self-taught designer & frontend developer, focused on user experience, accessibility and modern web technologies.",
 })
@@ -119,11 +119,16 @@ export default function Index() {
   }, [emailSent])
 
   return (
-    <main>
+
+    <>
+      {/* <FlyContainer /> */}
+      {/* <MainContainer>
+
+      </MainContainer> */}
       <Hero />
-      <Projects />
-      <About />
-      <Contact>
+      {/* <Projects /> */}
+      {/* <About /> */}
+      {/* <Contact>
         <ValidatedForm
           formRef={formRef}
           validator={validator}
@@ -137,7 +142,7 @@ export default function Index() {
             ref={nameInputRef}
             name='name'
             label="What's your name?"
-            placeholder='Oliver Cederborg'
+            placeholder='Alirom Solutions'
             required
           />
           <Input
@@ -146,7 +151,7 @@ export default function Index() {
             placeholder='hey@olivercederborg.com'
             required
           />
-          {/* Prevent bots from auto-filling and spamming. */}
+          // Prevent bots from auto-filling and spamming.
           <label htmlFor='company' className='hidden'>
             What company do you work for?
             <input
@@ -175,7 +180,7 @@ export default function Index() {
             <p className='text-red-500'>{actionData?.errors?.sendError}</p>
           )}
         </ValidatedForm>
-      </Contact>
-    </main>
+      </Contact> */}
+    </>
   )
 }

@@ -47,6 +47,9 @@ const linkVariants = {
 
 const MotionLink = motion(Link)
 
+const AnimatedLink = motion(Link)
+AnimatedLink.defaultProps = { className: 'hover:text-primary-brand nav-link' }
+
 export default function MobileNav() {
   const navRef = useRef<HTMLElement>(null)
   const navToggleRef = useRef<HTMLButtonElement>(null)
@@ -68,81 +71,67 @@ export default function MobileNav() {
     document.body.style.overflow = isOpen ? 'hidden' : 'visible'
   }, [isOpen])
   return (
-    <>
-      <Link to='/#' className='fixed top-8 left-4 z-30 md:hidden'>
-        <Logo height={36} />
-      </Link>
-
-      <button
-        ref={navToggleRef}
-        type='button'
-        aria-label={isOpen ? 'Close menu' : 'Open menu'}
-        onClick={toggle}
-        className='fixed top-8 right-4 z-30 text-dark-100 mix-blend-difference hover:opacity-60 dark:text-white md:hidden'
+    <div>
+      <motion.header
+        variants={navVariants}
+        initial='hidden'
+        animate='visible'
+        className='container fixed dark:text-white md:hidden 
+    bg-white
+dark:bg-dark-850 
+    dark:text-dark-50 text-dark-600'
+        style={{ background: '#ededed', zIndex: 9999999 }}
       >
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-          className='h-8 w-8'
-        >
-          <AnimatePresence>
-            {isOpen ? (
-              <motion.path
-                key='close'
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1, pathOffset: 0 }}
-                exit={{ pathOffset: 1 }}
-                transition={{ duration: 1, ease: 'circOut' }}
-                strokeLinecap='square'
-                strokeWidth={1.5}
-                d='M6 18L18 6M6 6l12 12'
-              />
-            ) : (
-              <motion.path
-                key='open'
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1, pathOffset: 0 }}
-                exit={{ pathOffset: 1 }}
-                transition={{ duration: 1, ease: 'circOut' }}
-                strokeLinecap='square'
-                strokeWidth={1.5}
-                d='M4 6h16M4 12h16m-7 6h7'
-              />
-            )}
-          </AnimatePresence>
-        </svg>
-      </button>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.nav
-            ref={navRef}
-            variants={navVariants}
-            initial='hidden'
-            animate='visible'
-            exit='hidden'
-            className='fixed inset-y-0 right-0 z-20 flex w-9/12 flex-col bg-dark-100 px-12 transition-colors dark:bg-dark-700 md:hidden h-full flex-wrap items-start justify-center gap-y-14'
-          >
-            <MotionLink to='/#intro' variants={linkVariants} className='mobile-nav-link'>
-              Introduction
-            </MotionLink>
-            <MotionLink to='/#projects' variants={linkVariants} className='mobile-nav-link'>
-              Projects
-            </MotionLink>
-            <MotionLink to='/#about' variants={linkVariants} className='mobile-nav-link'>
-              About
-            </MotionLink>
-            <MotionLink to='/#contact' variants={linkVariants} className='mobile-nav-link'>
-              Contact
-            </MotionLink>
-            <motion.div variants={linkVariants}>
-              <ThemeToggleButton />
-            </motion.div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
-    </>
+        <nav className='flex items-center justify-between gap-x-14 text-lg' style={{ padding: '10px' }}>
+          <AnimatedLink to='/#' variants={linkVariants} className=''>
+            <Logo height={36} />
+          </AnimatedLink>
+          <motion.div variants={linkVariants}>
+            <button
+              ref={navToggleRef}
+              type='button'
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              onClick={toggle}
+              className='fixed top-8 right-4 z-30 text-dark-100 mix-blend-difference hover:opacity-60 dark:text-white md:hidden'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+                className='h-8 w-8'
+              >
+                <AnimatePresence>
+                  {isOpen ? (
+                    <motion.path
+                      key='close'
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1, pathOffset: 0 }}
+                      exit={{ pathOffset: 1 }}
+                      transition={{ duration: 1, ease: 'circOut' }}
+                      strokeLinecap='square'
+                      strokeWidth={1.5}
+                      d='M6 18L18 6M6 6l12 12'
+                    />
+                  ) : (
+                    <motion.path
+                      key='open'
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1, pathOffset: 0 }}
+                      exit={{ pathOffset: 1 }}
+                      transition={{ duration: 1, ease: 'circOut' }}
+                      strokeLinecap='square'
+                      strokeWidth={1.5}
+                      d='M4 6h16M4 12h16m-7 6h7'
+                    />
+                  )}
+                </AnimatePresence>
+              </svg>
+            </button>
+          </motion.div>
+        </nav>
+        {/* ALIROM Solutions */}
+      </motion.header>
+    </div >
   )
 }

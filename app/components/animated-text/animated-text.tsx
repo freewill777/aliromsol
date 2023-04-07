@@ -67,7 +67,7 @@ export const AnimatedLetters = <C extends ElementType = 'div'>({
     <Tag {...rest}>
       <motion.span variants={textVariants}>
         {words.map((_, index) => (
-          <span key={index} className='inline-block whitespace-nowrap'>
+          <span key={index} className='inline-block whitespace-nowrap' style={{ marginTop: '0.35em' }}>
             {[...words[index]].flat().map((letter, letterIndex) => (
               <span key={letterIndex} className='inline-block overflow-hidden'>
                 <motion.span variants={letterVariants} className='inline-block'>

@@ -24,10 +24,11 @@ module.exports = {
         center: true,
         padding: '1rem',
       },
-      backgroundImage: {
-        'dark-hero': "url('/assets/dark-hero.png')",
-        'light-hero': "url('/assets/light-hero.png')",
-      },
+      // backgroundImage: {
+      //   'dark-hero': "url('/assets/dark-hero.png')",
+      //   'light-hero': "url('/assets/light-hero.png')",
+      // },
+      backgroundColor: '#805b50',
       screens: {
         '2xl': '1440px',
       },

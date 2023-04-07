@@ -7,7 +7,7 @@ import { AnimatedLetters, AnimatedText } from '~/components/animated-text'
 import { SideProjectItem } from '~/components/side-project-item'
 
 export const meta: MetaFunction = () => ({
-  title: 'Side Projects - Oliver Cederborg',
+  title: 'Side Projects - Alirom Solutions',
   description:
     "I'm a 25 year old self-taught designer & frontend developer, focused on user experience, accessibility and modern web technologies.",
 })
@@ -39,7 +39,7 @@ export const loader: LoaderFunction = async () => {
       name: 'use-scrollspy',
       area: 'React Hook',
       image: 'https://mj-gallery.com/6c010f60-f86b-4a99-84b0-b98177497205/grid_0.png',
-      imageAlt: 'scrollspy hook by Oliver Cederborg',
+      imageAlt: 'scrollspy hook by Alirom Solutions',
       repo: 'olivercederborg/use-scrollspy',
       url: 'https://github.com/olivercederborg/use-scrollspy',
       color: '#4D4E52',
@@ -50,7 +50,7 @@ export const loader: LoaderFunction = async () => {
       area: 'Neovim Plugin',
       image:
         'https://user-images.githubusercontent.com/47901349/180445055-92480553-0652-4155-8d41-835fec27245b.png',
-      imageAlt: 'Poimandres Neovim color scheme by Oliver Cederborg',
+      imageAlt: 'Poimandres Neovim color scheme by Alirom Solutions',
       repo: 'olivercederborg/poimandres.nvim',
       url: 'https://github.com/olivercederborg/poimandres.nvim',
       color: '#23393D',
@@ -61,7 +61,7 @@ export const loader: LoaderFunction = async () => {
       area: 'WezTerm Color Scheme',
       image:
         'https://user-images.githubusercontent.com/47901349/179416018-ba8e24a6-3590-4eff-93cb-806d41378a0d.png',
-      imageAlt: 'Poimandres WezTerm color scheme by Oliver Cederborg',
+      imageAlt: 'Poimandres WezTerm color scheme by Alirom Solutions',
       repo: 'olivercederborg/poimandres-wezterm',
       url: 'https://github.com/olivercederborg/poimandres-wezterm',
       color: '#23393D',
@@ -71,7 +71,7 @@ export const loader: LoaderFunction = async () => {
       name: 'Modern Monokai',
       area: 'VSCode Color Scheme',
       image: 'https://github.com/olivercederborg/modern-monokai/raw/master/assets/screen1.png',
-      imageAlt: 'Modern Monokai color scheme by Oliver Cederborg',
+      imageAlt: 'Modern Monokai color scheme by Alirom Solutions',
       repo: 'olivercederborg/modern-monokai',
       url: 'https://marketplace.visualstudio.com/items?itemName=OliverCederborg.modern-monokai',
       color: '#292E36',

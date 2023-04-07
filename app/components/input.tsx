@@ -14,8 +14,9 @@ type InputProps = {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ name, label, placeholder, required = false }, ref) => {
+  ({ name, label, placeholder, required = false, onChange }, ref) => {
     const { error, getInputProps, touched } = useField(name)
+
     return (
       <div>
         <motion.label
@@ -32,10 +33,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {label}
         </motion.label>
         <motion.input
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0, transition: { ease: 'circOut', duration: 0.5 } },
-          }}
           ref={ref}
           {...getInputProps({ id: name, placeholder })}
           className={clsx(
@@ -43,6 +40,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             error && 'border-red-500 dark:border-red-400',
             touched && !error && 'border-green-500 dark:border-green-400'
           )}
+          onChange={(a) => {
+            onChange(a.currentTarget.value)
+            console.log(a.currentTarget.value)
+          }}
         />
         {error && (
           <span className='mt-4 block font-light text-red-500 dark:text-red-400'>{error}</span>

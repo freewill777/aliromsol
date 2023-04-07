@@ -13,31 +13,31 @@ export const Footer = () => {
     >
       <section className='flex w-1/2 gap-8 md:gap-12 text-xl'>
         <motion.a
-          href='https://github.com/olivercederborg'
+          href='#'
           target='_blank'
           rel='noreferrer'
           variants={footerItemVariants}
           className='nav-link text-xl text-dark-500'
         >
-          Github
+          Contact
         </motion.a>
         <motion.a
-          href='https://dribbble.com/oliver'
+          href='#'
           target='_blank'
           rel='noreferrer'
           variants={footerItemVariants}
           className='nav-link text-xl text-dark-500'
         >
-          Dribbble
+          Get in touch
         </motion.a>
         <motion.a
-          href='https://www.linkedin.com/in/olivercederborg/'
+          href='#'
           target='_blank'
           rel='noreferrer'
           variants={footerItemVariants}
           className='nav-link text-xl text-dark-500'
         >
-          Linkedin
+          Catalog
         </motion.a>
       </section>
 
@@ -45,7 +45,7 @@ export const Footer = () => {
         variants={footerItemVariants}
         className='font-light text-dark-300 dark:text-dark-400'
       >
-        &copy; Oliver Cederborg
+        &copy; Alirom Solutions
       </motion.p>
     </motion.footer>
   )
